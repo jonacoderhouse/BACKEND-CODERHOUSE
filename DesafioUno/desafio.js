@@ -52,7 +52,7 @@ class ProductManager{
     console.log(nuevoProducto.getProductos()); 
 
     nuevoProducto.addProduct("playstation 5",
-    "videojuegos",
+    "Videojuegos",
     200000,
     "sin imagen",
     "abc",
@@ -62,13 +62,13 @@ class ProductManager{
     200,
     "sin imagen",
     "abc1",
-    5);
+    50);
 
 
     console.log(nuevoProducto.getProductos());
     nuevoProducto.getProductById(1);
 
-    //PRIMER DESAFIO 
+    //PRIMER DESAFIO CODIGO BACKEND CODERHOUSE
     //TUTORIA : NORA PATRICIA SAUCEDO
 
 
