@@ -41,7 +41,7 @@ class ProductManager{
         if (!product) {
         console.log("no existe el producto");
         } else {
-        console.log("estoy aca");
+        console.log("producto encontrado");
         return product;
         }
     }
