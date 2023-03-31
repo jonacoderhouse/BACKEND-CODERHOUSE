@@ -27,7 +27,7 @@ try {
     
 
     //Testing: Metodo deleteProduct - eliminar un producto por id
-    //await managers.deleteProduct(2);
+    //await managers.deleteProduct(7);
     //productos = await managers.getProducts();
     //console.log(productos);
 } catch (error) {

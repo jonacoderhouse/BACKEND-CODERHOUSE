@@ -1,1 +1,11 @@
-[]
+[
+	{
+		"title": "Coca Cola",
+		"description": "Bebida gaseosa",
+		"price": 650,
+		"thumbnail": "https://www.coca-cola.com.ar/content/dam/journey/ar/es/private/brands/coca-cola/coca-cola-bottle.png",
+		"code": 1,
+		"stock": 10,
+		"id": 1
+	}
+]

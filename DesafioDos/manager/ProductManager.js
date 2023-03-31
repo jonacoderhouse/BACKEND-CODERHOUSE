@@ -19,7 +19,8 @@ export default class ProductManager {
     }
 
     addProduct = async (title, description, price, thumbnail, code, stock) => {
-        const products = await this.getProducts();
+        try {
+            const products = await this.getProducts();
         let product = {
             title,
             description,
@@ -38,45 +39,65 @@ export default class ProductManager {
 
         await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
         return products;
+            
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     getProductById = async(id) =>{
-        const products = await this.getProducts();
-        const product = products.find(product => product.id === id);
-        if(!product){
-            console.log("No se encontro el producto");
-        }else{
-            console.log(`Producto encontrado nombre: ${product.title}`);
+        try {
+            const products = await this.getProducts();
+            const product = products.find(product => product.id === id);
+            if(!product){
+                console.log("No se encontro el producto");
+            }else{
+                console.log(`Producto encontrado nombre: ${product.title}`);
+            }
+            return product;
         }
-        return product;
+
+        catch (error) {
+            console.log(error);
+        }
     }
 
     updateProduct = async(id, field, value) =>{
-        const products = await this.getProducts();
+        try {
+            const products = await this.getProducts();
+            if(field==="id"){
+                return console.log("error no se puede modificar el id");
+            }
+            const updatedProduct = products.map(prod =>
+                prod.id === id ? { ...prod, [field]: value,} : prod
+            );             
+            await fs.promises.writeFile(this.path, JSON.stringify(updatedProduct, null, '\t'));
+            return updatedProduct
 
-        if(field==="id"){
-            return console.log("error no se puede modificar el id");
         }
-        const updatedProduct = products.map(prod =>
-            prod.id === id ? { ...prod, [field]: value,} : prod
-        );             
-        await fs.promises.writeFile(this.path, JSON.stringify(updatedProduct, null, '\t'));
-        return updatedProduct
+        catch (error) {
+            console.log(error);
+        }
     }
 
 
         deleteProduct = async(id) =>{
-            let products = await this.getProducts();
-            const product = products.find(product => product.id === id);
+            try {
+                let products = await this.getProducts();
+                const product = products.find(product => product.id === id);
+    
+                if(!product){
+                    console.log("No se encontro el producto");
+                }
+                products = products.filter(product => product.id !== id);
+                await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
+                return products;
 
-            if(!product){
-                console.log("No se encontro el producto");
             }
-            products = products.filter(product => product.id !== id);
-            await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
-            return products;
-            
-            
+            catch (error) {
+                console.log(error);
+            }
         }
 
 
