@@ -1,5 +1,4 @@
 
-
 class ProductManager{
     constructor(){
         this.products =  [];
@@ -8,7 +7,7 @@ class ProductManager{
     getProductos(){
         return this.products;
     }
-
+    
     addProduct(title, description, price, thumbnail, code, stock){  
 
         let registroProducto = this.products.find(e => e.code === code);

@@ -10,7 +10,7 @@ try {
     let productos = await managers.getProducts();
     console.log(productos);
     
-
+    
     //Testing: Metodo addProduct - agregar un producto
     //await managers.addProduct('Coca Cola', 'Bebida gaseosa', 100, 'https://www.coca-cola.com.ar/content/dam/journey/ar/es/private/brands/coca-cola/coca-cola-bottle.png', 1, 10);
     //await managers.addProduct('Pepsi', 'Bebida gaseosa', 100, 'https://www.coca-cola.com.ar/content/dam/journey/ar/es/private/brands/coca-cola/coca-cola-bottle.png', 2, 10);
@@ -22,7 +22,7 @@ try {
     
 
     //Testing: Metodo updateProduct - actualizar un producto por id
-    //productos = await managers.updateProduct(1, 'price', 650);
+    //productos = await managers.updateProduct(1, 'id', 650);
     //console.log(productos);
     
 
