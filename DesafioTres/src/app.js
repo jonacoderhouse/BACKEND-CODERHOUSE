@@ -23,8 +23,10 @@ app.get("/products", async (request, res) => {
 app.get('/products/:pid', async (req,res)=> {
     let pid = Number(req.params.pid);
     let product = await managers.getProductById(pid);
-    !product ? res.send({error:'Producto no encontrado'}):res.send(product);
+    !product ?  res.send({error:'Producto no encontrado'}):res.send(product);
     
 })
 
 app.listen(8080,()=>console.log("Listening on 8080"))
+
+// Tercer desafio entregable.
